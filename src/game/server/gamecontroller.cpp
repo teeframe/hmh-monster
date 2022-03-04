@@ -727,7 +727,7 @@ void IGameController::DoWincheck()
     if(m_CurrentWave == 1) // Do not finish the round on the first wave.
         return;
 
-	bool FoundAlive = false;
+    bool FoundAlive = false;
 
 	for(int i = 0; i < MAX_CLIENTS; i ++)
     {

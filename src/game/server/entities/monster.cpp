@@ -32,7 +32,7 @@ CMonster::CMonster(CGameWorld *pWorld, int Type, int MonsterID, int Health, int 
     for(int i = 0; i < ENTITY_NUM; i ++)
         m_aIDs[i] = Server()->SnapNewID();
 
-	GameWorld()->InsertEntity(this);
+    GameWorld()->InsertEntity(this);
 }
 
 void CMonster::Reset()
@@ -935,10 +935,10 @@ void CMonster::Tick()
     for(int i = 0; i < ENTITY_NUM; i ++)
         m_aSnapPos[i] = m_Pos + normalize(GetDir(pi/180 * ((Server()->Tick() + i*(360/ENTITY_NUM)%360+1) * ENTITY_SPEED)))*(m_ProximityRadius/2);
 
-	HandleActions();
-	HandleWeapons();
-	HandleCore();
-	Move();
+    HandleActions();
+    HandleWeapons();
+    HandleCore();
+    Move();
 }
 
 void CMonster::HandleActions() // This is the monsters AI, it has been decreased because if too many calculations, it creates hard lags/crashes

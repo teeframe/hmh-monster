@@ -2,7 +2,7 @@
 /* If you are missing that file, acquire a complete release at teeworlds.com.                */
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-/* Copyright © 2013 Neox.                                                                                                */
+/* Copyright ï¿½ 2013 Neox.                                                                                                */
 /* If you are missing that file, acquire a complete release at https://www.teeworlds.com/forum/viewtopic.php?pid=106934  */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -39,13 +39,16 @@ bool CLaser::HitCharacter(vec2 From, vec2 To)
 	m_Pos = At;
 	m_Energy = -1;
 	int Damage = 0;
+
 	if(m_FromMonster && GameServer()->GetValidMonster(m_Owner))
         Damage += GameServer()->GetValidMonster(m_Owner)->GetDifficulty() - 1;
-	if(pHit)
+
+    if(pHit)
         pHit->TakeDamage(vec2(0.f, 0.f), GameServer()->Tuning()->m_LaserDamage + Damage, m_Owner, WEAPON_RIFLE, m_FromMonster);
     else if(pHit2)
         pHit2->TakeDamage(vec2(0.f, 0.f), GameServer()->Tuning()->m_LaserDamage + Damage, m_Owner, WEAPON_RIFLE, m_FromMonster);
-	return true;
+
+    return true;
 }
 
 void CLaser::DoBounce()

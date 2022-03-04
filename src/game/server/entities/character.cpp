@@ -294,19 +294,19 @@ void CCharacter::FireWeapon()
 
 
 	// check if we gonna fire
-	bool WillFire = false;
-	if(CountInput(m_LatestPrevInput.m_Fire, m_LatestInput.m_Fire).m_Presses)
+    bool WillFire = false;
+    if(CountInput(m_LatestPrevInput.m_Fire, m_LatestInput.m_Fire).m_Presses)
 		WillFire = true;
 
-	if(FullAuto && (m_LatestInput.m_Fire&1) && m_aWeapons[m_ActiveWeapon].m_Ammo)
-		WillFire = true;
+    if(FullAuto && (m_LatestInput.m_Fire&1) && m_aWeapons[m_ActiveWeapon].m_Ammo)
+        WillFire = true;
 
-	if(!WillFire)
-		return;
+    if(!WillFire)
+        return;
 
 	// check for ammo
-	if(!m_aWeapons[m_ActiveWeapon].m_Ammo)
-	{
+    if(!m_aWeapons[m_ActiveWeapon].m_Ammo)
+    {
 		// 125ms is a magical limit of how fast a human can click
 		m_ReloadTimer = 125 * Server()->TickSpeed() / 1000;
 		if(m_LastNoAmmoSound+Server()->TickSpeed() <= Server()->Tick())
@@ -742,8 +742,8 @@ void CCharacter::Tick()
     if(!m_pPlayer) // security ?
         return;
 
-	if(m_pPlayer->m_ForceBalanced)
-	{
+    if(m_pPlayer->m_ForceBalanced)
+    {
 		char Buf[128];
 		str_format(Buf, sizeof(Buf), "You were moved to %s due to team balancing", GameServer()->m_pController->GetTeamName(m_pPlayer->GetTeam()));
 		GameServer()->SendBroadcast(Buf, m_pPlayer->GetCID());
@@ -980,7 +980,7 @@ bool CCharacter::TakeDamage(vec2 Force, int Dmg, int From, int Weapon, bool From
     if(From == m_pPlayer->GetCID()) //avoid blocking
         m_Core.m_Vel += Force;
 
-	if(!FromMonster || g_Config.m_GodMode) // Disable players damage
+    if(!FromMonster || g_Config.m_GodMode) // Disable players damage
         return false;
 
     int DamageToReflect = 0;
@@ -988,7 +988,7 @@ bool CCharacter::TakeDamage(vec2 Force, int Dmg, int From, int Weapon, bool From
     if(m_pPlayer->m_Upgrades.m_DmgReflect && Dmg)
         DamageToReflect = max(1, Dmg/2);
 
-	m_DamageTaken++;
+    m_DamageTaken++;
 
 	// create healthmod indicator
 	if(Server()->Tick() < m_DamageTakenTick+25)

@@ -34,9 +34,11 @@ void CMine::Reset()
 {
     GameServer()->CreateExplosion(m_Pos, m_Owner, WEAPON_HAMMER, true);
     GameServer()->CreateSound(m_Pos, SOUND_GRENADE_EXPLODE);
+
     if(GameServer()->GetPlayerChar(m_Owner))
         GameServer()->GetPlayerChar(m_Owner)->m_MineNum = clamp(GameServer()->GetPlayerChar(m_Owner)->m_MineNum + 1, 0, g_Config.m_SvMaxMines);
-	GameWorld()->DestroyEntity(this);
+
+    GameWorld()->DestroyEntity(this);
 }
 
 void CMine::Tick()

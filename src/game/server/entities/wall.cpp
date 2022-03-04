@@ -62,7 +62,7 @@ void CWall::Reset()
     if(GameServer()->GetPlayerChar(m_Owner))
         GameServer()->GetPlayerChar(m_Owner)->m_WallNum = clamp(GameServer()->GetPlayerChar(m_Owner)->m_WallNum + 1, 0, g_Config.m_SvMaxWalls);
 
-	GameServer()->m_World.DestroyEntity(this);
+    GameServer()->m_World.DestroyEntity(this);
 
     Server()->SnapFreeID(m_ID2);
 }

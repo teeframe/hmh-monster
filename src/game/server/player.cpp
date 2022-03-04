@@ -91,7 +91,7 @@ void CPlayer::Tick()
     if(!m_IsRainbow && m_Upgrades.m_PowerfulWeapons)
         m_IsRainbow = true;
 
-	Server()->SetClientScore(m_ClientID, m_Score);
+    Server()->SetClientScore(m_ClientID, m_Score);
 
 	// do latency stuff
 	{
@@ -207,7 +207,7 @@ void CPlayer::PostTick()
         return;
 
 	// update latency value
-	if(m_PlayerFlags&PLAYERFLAG_SCOREBOARD)
+    if(m_PlayerFlags&PLAYERFLAG_SCOREBOARD)
 	{
 		for(int i = 0; i < MAX_CLIENTS; ++i)
 		{
